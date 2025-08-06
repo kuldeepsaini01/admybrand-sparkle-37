@@ -19,9 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'poppins': ['Poppins', 'sans-serif'],
-				'dm-sans': ['DM Sans', 'sans-serif'],
-				'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
+				'space-grotesk': ['Space Grotesk', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

@@ -15,21 +15,11 @@ export function useScrollReveal() {
       rootMargin: "0px 0px -50px 0px"
     })
 
-    // Initial setup
-    const setupScrollReveal = () => {
-      const elements = document.querySelectorAll(".scroll-reveal")
-      elements.forEach((el) => observer.observe(el))
-    }
-
-    // Setup immediately
-    setupScrollReveal()
-
-    // Also setup after a short delay to catch dynamically loaded content
-    const timeoutId = setTimeout(setupScrollReveal, 100)
+    const elements = document.querySelectorAll(".scroll-reveal")
+    elements.forEach((el) => observer.observe(el))
 
     return () => {
-      clearTimeout(timeoutId)
-      observer.disconnect()
+      elements.forEach((el) => observer.unobserve(el))
     }
   }, [])
 }
