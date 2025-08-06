@@ -43,12 +43,12 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section className="py-24 relative">
+    <section className="py-16 md:py-24 relative">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 scroll-reveal">
+        <div className="text-center mb-12 md:mb-16 scroll-reveal">
           <SectionHeader
             badge="FAQ"
             title="Frequently Asked Questions"
@@ -57,21 +57,21 @@ export function FAQSection() {
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <div className="glass-card p-8 rounded-2xl scroll-reveal">
-            <Accordion type="single" collapsible className="space-y-4">
+          <div className="glass-card p-4 md:p-8 rounded-2xl scroll-reveal">
+            <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
               {faqs.map((faq, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="border border-glass-border/20 rounded-xl px-6 bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm"
+                  className="border border-glass-border/20 rounded-xl px-4 md:px-6 bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm"
                 >
-                  <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="font-semibold text-foreground pr-4">
+                  <AccordionTrigger className="text-left hover:no-underline py-4 md:py-6 text-sm md:text-base">
+                    <span className="font-medium md:font-semibold text-foreground pr-3 md:pr-4 leading-snug">
                       {faq.question}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-6 pt-2">
-                    <p className="text-muted-foreground leading-relaxed">
+                  <AccordionContent className="pb-4 md:pb-6 pt-1 md:pt-2">
+                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                       {faq.answer}
                     </p>
                   </AccordionContent>
@@ -82,19 +82,19 @@ export function FAQSection() {
         </div>
         
         {/* Contact CTA */}
-        <div className="text-center mt-16 scroll-reveal">
-          <div className="inline-block p-8 glass-card rounded-2xl">
-            <h3 className="text-2xl font-space-grotesk font-bold gradient-text mb-4">
+        <div className="text-center mt-12 md:mt-16 scroll-reveal">
+          <div className="inline-block p-6 md:p-8 glass-card rounded-2xl max-w-lg mx-auto">
+            <h3 className="text-xl md:text-2xl font-space-grotesk font-bold gradient-text mb-3 md:mb-4">
               Still have questions?
             </h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-4 md:mb-6 text-sm md:text-base">
               Our team is here to help you succeed with ADmyBRAND AI Suite
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-gradient">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+              <button className="btn-gradient text-sm md:text-base px-4 md:px-6 py-2 md:py-3">
                 Contact Support
               </button>
-              <button className="btn-glass">
+              <button className="btn-glass text-sm md:text-base px-4 md:px-6 py-2 md:py-3">
                 Schedule a Call
               </button>
             </div>
