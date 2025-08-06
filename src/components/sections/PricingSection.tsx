@@ -1,5 +1,7 @@
 import { SectionHeader } from "@/components/ui/section-header"
 import { PricingCard } from "@/components/ui/pricing-card"
+import { PricingCalculator } from "@/components/ui/pricing-calculator"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const pricingPlans = [
   {
@@ -68,30 +70,44 @@ export function PricingSection() {
             description="Transparent pricing with no hidden fees. Start free and scale as you grow. All plans include our core AI features."
           />
         </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {pricingPlans.map((plan, index) => (
-            <div
-              key={plan.title}
-              className="scroll-reveal"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <PricingCard
-                title={plan.title}
-                price={plan.price}
-                period={plan.period}
-                description={plan.description}
-                features={plan.features}
-                popular={plan.popular}
-                ctaText={plan.ctaText}
-                onSelect={() => {
-                  // Handle plan selection
-                  console.log(`Selected ${plan.title} plan`)
-                }}
-              />
-            </div>
-          ))}
+
+        {/* Pricing Tabs */}
+        <div className="max-w-4xl mx-auto mb-16 scroll-reveal">
+          <Tabs defaultValue="plans" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 glass-card">
+              <TabsTrigger value="plans">Pre-built Plans</TabsTrigger>
+              <TabsTrigger value="calculator">Custom Calculator</TabsTrigger>
+            </TabsList>
+            <TabsContent value="plans" className="mt-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {pricingPlans.map((plan, index) => (
+                  <div
+                    key={plan.title}
+                    className="scroll-reveal"
+                    style={{ animationDelay: `${index * 0.2}s` }}
+                  >
+                    <PricingCard
+                      title={plan.title}
+                      price={plan.price}
+                      period={plan.period}
+                      description={plan.description}
+                      features={plan.features}
+                      popular={plan.popular}
+                      ctaText={plan.ctaText}
+                      onSelect={() => {
+                        console.log(`Selected ${plan.title} plan`)
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+            <TabsContent value="calculator" className="mt-8">
+              <PricingCalculator />
+            </TabsContent>
+          </Tabs>
         </div>
+        
         
         {/* Money Back Guarantee */}
         <div className="text-center mt-16 scroll-reveal">
