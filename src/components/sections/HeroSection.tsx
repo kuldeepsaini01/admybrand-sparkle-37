@@ -96,7 +96,7 @@ export function HeroSection() {
                 <GlassCard size="sm" className="p-3">
                   <div className="flex items-center space-x-2">
                     <div className="text-lg font-bold text-primary">+247%</div>
-                    <span className="text-xs">Conversion</span>
+                    <span className="text-xs">Conversions</span>
                   </div>
                 </GlassCard>
               </div>

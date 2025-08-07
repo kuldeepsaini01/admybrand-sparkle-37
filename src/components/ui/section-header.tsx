@@ -36,7 +36,10 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
         </h2>
         
         {description && (
-          <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
+          <p className={cn(
+            "text-lg text-muted-foreground max-w-3xl leading-relaxed",
+            centered && "mx-auto"
+          )}>
             {description}
           </p>
         )}
